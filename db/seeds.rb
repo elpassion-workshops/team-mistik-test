@@ -1,10 +1,14 @@
+# Download json with movies data
 movies_json_url = URI('https://raw.githubusercontent.com/mlabouardy/Rated-Movies/master/client/data/top-rated.json')
 movies_json = Net::HTTP.get(movies_json_url)
 movies = JSON.parse(movies_json)['movies']
 
+# Delete each movie from database
 Movie.destroy_all
 
+# Iterate through each of movie
 movies.each do |movie|
+  # Extract data about movie
   cover_url = movie['img']
   rating = movie['rating'].to_i
   title = movie['title']
@@ -12,5 +16,6 @@ movies.each do |movie|
   tags = movie['tags'].map {|tag| tag['name']}
   description = movie['description']
 
+  # Here you can use variables
   Movie.create!(title: title, description: description)
 end
