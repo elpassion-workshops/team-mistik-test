@@ -7,7 +7,7 @@ movies = JSON.parse(movies_json)['movies']
 Movie.delete_all
 
 # Iterate through each of movie
-movies.each do |movie|
+movies.take(200).each do |movie|
   # Extract data about movie
   cover_url = movie['img']
   rating = movie['rating'].to_i
