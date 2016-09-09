@@ -12,6 +12,6 @@ parsed_movies.each do |movie|
   # movie['description']
 
 
-  
+
   Movie.create!(title: movie['title'], description: movie['description'])
 end
