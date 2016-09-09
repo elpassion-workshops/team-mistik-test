@@ -4,7 +4,7 @@ movies_json = Net::HTTP.get(movies_json_url)
 movies = JSON.parse(movies_json)['movies']
 
 # Delete each movie from database
-Movie.destroy_all
+Movie.delete_all
 
 # Iterate through each of movie
 movies.each do |movie|
