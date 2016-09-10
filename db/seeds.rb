@@ -4,7 +4,7 @@ movies_json = Net::HTTP.get(movies_json_url)
 movies = JSON.parse(movies_json)['movies']
 
 # Delete each movie from database
-Movie.delete_all
+# Movie.delete_all
 
 # Iterate through each of movie
 movies.take(200).each do |movie|
@@ -16,6 +16,7 @@ movies.take(200).each do |movie|
   tags = movie['tags'].map {|tag| tag['name']}
   description = movie['description']
 
+  puts cover_url
   # Here you can use variables
-  Movie.create!(title: title, description: description)
+  # Movie.create!(title: title, description: description)
 end
