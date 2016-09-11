@@ -16,7 +16,6 @@ movies.take(200).each do |movie|
   tags = movie['tags'].map {|tag| tag['name']}
   description = movie['description']
 
-  
   puts cover_url
   # Here you can use variables
   # Movie.create!(title: title, description: description)
